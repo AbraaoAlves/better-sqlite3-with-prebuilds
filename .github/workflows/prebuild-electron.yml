@@ -19,11 +19,11 @@ jobs:
             -   uses: actions/checkout@v3
                 with:
                     repository: "JoshuaWise/better-sqlite3"
-            -   name: Use Node.js 18
-                uses: actions/setup-node@v3
+            -   name: Use Node.js 22
+                uses: actions/setup-node@v4
                 with:
-                    node-version: 18
-            -   run: npm install -g npm@6
+                    node-version: 22
+            -   run: npm install -g npm@10
             -   run: npm --version
             -   run: npm install && (npm list || true)
             -   name: Change package name
@@ -38,5 +38,5 @@ jobs:
                 run: cat package.json
             -   name: Build release
                 run: |
-                    npx prebuild -r electron -t 16.0.0 -t 18.0.0 -t 20.0.0 --include-regex 'better_sqlite3.node$' -u ${{ secrets.GITHUB_TOKEN }}
+                    npx prebuild -r electron -t 16.0.0 -t 18.0.0 -t 20.0.0 -t 37.10.3 --include-regex 'better_sqlite3.node$' -u ${{ secrets.GITHUB_TOKEN }}
 
